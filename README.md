@@ -31,19 +31,19 @@ The resizer's namespace is `Saas/Resizer`, so you need to use the namespace firs
 ```php
 	use Saas/Resizer/Resizer
 ```
-Then, you can use the resizer like below:
+Then, you can use the resizer like the example below:
 
 ```php
 	Resizer::open( mixed $file )
 		->resize( int $width , int $height , string $option )
 		->save( string $save_path , int $quality );
 ```
-`@param mixed $file` The file array provided by Laravel 3's `Input::file('field_name')` , a path to a file or a Symfony\Component\HttpFoundation\File\UploadedFile object by by Laravel 4's `Input::file('field_name')`.
-`@param int $width`  The width of the image;
-`@param int $height` The height of the image;
-`@param string $option` Either exact, portrait, landscape, auto or crop.
-`@param string $save_path` Where to save the image
-`@param int $quality` The output quality of the image
+*`@param mixed $file` The file array provided by Laravel 3's `Input::file('field_name')` , a path to a file or a Symfony\Component\HttpFoundation\File\UploadedFile object by by Laravel 4's `Input::file('field_name')`.  
+*`@param int $width`  The width of the image;  
+*`@param int $height` The height of the image;  
+*`@param string $option` Either exact, portrait, landscape, auto or crop.  
+*`@param string $save_path` Where to save the image;  
+*`@param int $quality` The output quality of the image.
 
 In addition, you can find more detail and other methods at [tutsplus site](http://net.tutsplus.com/tutorials/php/image-resizing-made-easy-with-php/).
 
