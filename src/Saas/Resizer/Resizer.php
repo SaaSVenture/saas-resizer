@@ -114,13 +114,6 @@ class Resizer {
 		
 		imagefilledrectangle( $image_background , 0 , 0 , $this->width , $this->height , $background_colour );
 		imagecopy( $image_background , $this->image , 0 , 0 , 0 , 0 , $this->width , $this->height );
-		// imagecolortransparent( $this->image_resized , imagecolorallocatealpha( $this->image_resized , 255 , 255 , 255 , 127 ) );
-		// imagealphablending( $this->image_resized , false );
-		// imagesavealpha( $this->image_resized , true );
-		
-		// convert transparency to white when converting from PNG to JPG.
-		// PNG to PNG should retain transparency as per normal.
-		// imagefill( $this->image_resized , 0 , 0 , IMG_COLOR_TRANSPARENT );
 		
 		// Create the new image.
 		imagecopyresampled( $this->image_resized , $image_background , 0 , 0 , 0 , 0 , $optimal_width , $optimal_height , $this->width , $this->height );
@@ -438,7 +431,7 @@ class Resizer {
 		$crop_points = array();
 		
 		// Where is our vertical starting crop point?
-		switch ( Config::get('resizer::defaults.crop_vertical_start_point') ) {
+		switch ( \Config::get('resizer::defaults.crop_vertical_start_point') ) {
 			case 'top':
 				$crop_points['y'] = 0;
 				break;
@@ -450,12 +443,12 @@ class Resizer {
 				break;
 			
 			default:
-				throw new \Exception('Unknown value for crop_vertical_start_point: '. Config::get('resizer::defaults.crop_vertical_start_point') .'. Please check config file in the Resizer bundle.');
+				throw new \Exception('Unknown value for crop_vertical_start_point: '. \Config::get('resizer::defaults.crop_vertical_start_point') .'. Please check config file in the Resizer bundle.');
 				break;
 		}
 		
 		// Where is our horizontal starting crop point?
-		switch ( Config::get('resizer::defaults.crop_horizontal_start_point') ) {
+		switch ( \Config::get('resizer::defaults.crop_horizontal_start_point') ) {
 			case 'left':
 				$crop_points['x'] = 0;
 				break;
@@ -467,7 +460,7 @@ class Resizer {
 				break;
 			
 			default:
-				throw new \Exception('Unknown value for crop_horizontal_start_point: '. Config::get('resizer::defaults.crop_horizontal_start_point') .'. Please check config file in the Resizer bundle.');
+				throw new \Exception('Unknown value for crop_horizontal_start_point: '. \Config::get('resizer::defaults.crop_horizontal_start_point') .'. Please check config file in the Resizer bundle.');
 				break;
 		}
 		
